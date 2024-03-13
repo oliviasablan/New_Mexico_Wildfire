@@ -33,14 +33,18 @@ We repeated the same case-crossover process for several analyses. First, we cond
 - **b1_overall_casecasecross_analysis_4SmokeProducts_ED.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
 
 Next, we conducted our analysis with the ED and ESSENCE data across 2019-2022 to see long-term trends with the O'Dell et al. (2019) smoke product (code labeled with "2" and ending with "AllYears"):
-- **a1_preparehealthforCC_AllYears.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
+- **a2_preparehealthforCC_AllYears.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
 - **b2_overall_casecasecross_analysis_AllYear.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
 
 We also conducted our analysis for each smoke season separately for ED and ESSENCE with the O'Dell et al. (2019) smoke product (code labeled with "3" and ending with "EachYear"):
-- **a1_preparehealthforCC_AllYears.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
-- **b2_overall_casecasecross_analysis_AllYear.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
+- **a3_preparehealthforCC_EachYear.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
+- **b3_overall_casecasecross_analysis_EachYear.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
 
 3. **/code/plotting/**
+- **1lags_comparing4SmokeProducts.ipynb**- plotting distributed lag results to compare the different smoke products
+- **2lags_AllYears.ipynb** - plotting distributed lag results over all smoke seasons (2019-2022) for ESSENCE and ED data
+- **3lags_EachYear.ipynb** - plotting distributed lag results to compare each year (2016 - 2022) of smoke seasons for ESSENCE and ED data
+- 
 
 4. **/code/misc**
 - **CropGridToNM.ipynb** - crops gridded netCDF dataset to the state of New Mexico
