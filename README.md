@@ -40,3 +40,7 @@ We also conducted our analysis for each smoke season separately for ED and ESSEN
 - **a1_preparehealthforCC_AllYears.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
 - **b2_overall_casecasecross_analysis_AllYear.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
 
+3. **/code/plotting/**
+
+4. **/code/misc**
+- **CropGridToNM.ipynb** - crops gridded netCDF dataset to the state of New Mexico
