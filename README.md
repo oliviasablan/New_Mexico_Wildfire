@@ -26,4 +26,16 @@ The emergency department and syndromic surveillance data includes protected heal
 -  **"CleanHealthStep2.ipynb"** - removes erroneous ZIP codes and reformats ED dianosis columns
 -  **"reformatSmokeData.ipynb"**- merges and melts the smoke datafiles to create 4 final population-weighted ZIP code datasets for each smoke product
 2. case_crossover
-   
+- **"00_preparesmokeforCCloop.R"** - applies a lag to each smoke product
+We repeated the same case-crossover process for several analyses. First, we conducted the time-stratified case-crossover analysis using several different smoke products with the ED data (code labeled with "1" and ending with "4SmokeProducts"):
+- **a1_preparehealthforCC_4SmokeProducts_ED.R** - combines the ED data and all four smoke products to create a case-crossover dataset
+- **b1_overall_casecasecross_analysis_4SmokeProducts_ED.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
+
+Next, we conducted our analysis with the ED and ESSENCE data across 2019-2022 to see long-term trends with the O'Dell et al. (2019) smoke product (code labeled with "2" and ending with "AllYears"):
+- **a1_preparehealthforCC_AllYears.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
+- **b2_overall_casecasecross_analysis_AllYear.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
+
+We also conducted our analysis for each smoke season separately for ED and ESSENCE with the O'Dell et al. (2019) smoke product (code labeled with "3" and ending with "EachYear"):
+- **a1_preparehealthforCC_AllYears.R** - combines the ESSENCE data and the O'Dell et al. (2019) smoke product to create a case-crossover dataset and then repeats with ED data
+- **b2_overall_casecasecross_analysis_AllYear.R** - conducts stratified case-crossover single day and distributed lag model analyses using conditional logistic regression
+
