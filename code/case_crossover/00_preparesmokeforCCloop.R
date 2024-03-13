@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------------
-# Title: preparesmokeforCCloop.R
+# Title: 00_preparesmokeforCCloop.R
 # Author: Olivia Sablan
 # Created: March 2024
 # Adapted from Grace Kuiper's code titled "00c_finalize_exposure_data.R"
