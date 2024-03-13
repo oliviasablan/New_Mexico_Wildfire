@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------------
-# Title: preparehleathforCC_allYears
+# Title: a2_preparehealthforCC_AllYears
 # Author: Olivia Sablan
 # Created: March 2024
 # Adapted from Grace Kuiper's code titled "00d_HFDR_data_cleaning.R"
