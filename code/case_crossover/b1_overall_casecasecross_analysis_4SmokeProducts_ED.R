@@ -1,7 +1,8 @@
 # --------------------------------------------------------------------------------------------
-# Adapted from Grace Kuiper's code titled "00d_HFDR_data_cleaning.R"
-# Olivia Sablan
-# 2/2024
+# Title: b1_overall_casecasecross_analysis_4SmokeProducts_ED.R
+# Author: Olivia Sablan
+# Created: March 2024
+# Adapted from Grace Kuiper's code titled "02_stratified_casecross_analysis.R"
 # --------------------------------------------------------------------------------------------
 rm(list=ls())
 library(tidyverse)
