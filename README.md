@@ -3,7 +3,7 @@
 ##### Email: osablan@colostate.edu
 
 ## Overview
-This Github repository contains R code and files for our study which investigates associations between exposure to fine particulate matter (PM<sub>2.5</sub>) from wildfire smoke and emergency department visits along with syndromic surveillance reports in the state of New Mexico from 2016-2022. This repository corresponds to the study detailed in the manuscript "ADD TITLE," which can be accessed here: ADD LINK
+This Github repository contains R code and files for our study which investigates associations between exposure to fine particulate matter (PM<sub>2.5</sub>) from wildfire smoke and emergency department visits along with syndromic surveillance (ESSENCE) reports in the state of New Mexico from 2016-2022. This repository corresponds to the study detailed in the manuscript "ADD TITLE," which can be accessed here: ADD LINK
 
 ## General Method Outline
 The goal of this project was to assess if the associations between PM<sub>2.5</sub> from wildfire smoke and respiratory and cardiovascular emergency department visits. We compared several smoke products as well as two different health data sources (emergency department records and the syndromic surveillance system). We used data from 2016-2022 for emergency department visits and 2019-2022 for syndromic surveillance. 
@@ -23,5 +23,9 @@ PurpleAir population-weight ZIP code data
 
 The emergency department and syndromic surveillance data includes protected health information (e.g., patient identification number, patient ZIP code, patient county, etc.) covered by the Health Information Portability and Accountability Act. Therefore, these data are not available due to data use agreements with the New Mexico Department of Health. Parties interested in reproducing or extending this work will need to set up their own data use agreements with the New Mexico Department of Health to receive this data. 
 
-## File Desciptions
-
+## File Desciption (for all code in the "code" directory)
+1. clean_data
+-  **"CleanHealthStep1.ipynb"** - removes duplicate entries and multiple visits as well as reformats the syndromic surveillance (ESSENCE) diagnosis columns
+-  **"CleanHealthStep2.ipynb"** - removes erroneous ZIP codes and reformats ED dianosis columns
+2. case_crossover
+   
