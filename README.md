@@ -10,16 +10,13 @@ The goal of this project was to assess if the associations between PM<sub>2.5</s
 
 We used an existing smoke product (detailed in O'Dell et al. 2019:  https://doi.org/10.1021/acs.est.8b05430), and also incorporated low-cost PM<sub>2.5</sub> sensors (PurpleAir) into this existing product. Both products distinguish smoke using satellite observations from the National Oceanic and Atmospheric Administration's Hazard Mapping System (https://www.ospo.noaa.gov/Products/land/hms.html). We population-weight both smoke exposure estimates to the ZIP code level to match the resolution of the health data. We then conducted a time-stratified case-crossover analysis for each cardiopulmonary outcome of interest.
 
-The code created to conduct these analyses is included in this repository. The smoke gridded exposure datasets can be found at the CSU data repository detailed below:
-O'Dell et al (2019) data
-- https://mountainscholar.org/items/89896cf7-1a64-43be-a61b-44cd460e9632 (2006-2018)
-- https://mountainscholar.org/items/cf8053c6-6a16-49e7-8b0f-1044322d867e (2019-2020)
-- https://mountainscholar.org/items/370ac2d9-422f-4256-a764-b75a5a84e724 (2021)
-- The gridded 2022 estimate is not publicly available at this time, but can be obtained from Bonne Ford (bonne@atmos.colostate.edu).
-- ADD DRYAD FOR POPULATION WEIGHTED
-
-PurpleAir population-weight ZIP code data
+The code created to conduct these analyses is included in this repository. The population-weighted smoke exposure datasets can be found at the CSU data repository detailed below:
+**O'Dell et al (2019) population-weight ZIP code data**
+- ADD DRYAD
+**PurpleAir population-weight ZIP code data**
 - ADD DYRAD
+**Maji et al (2024) population-weight ZIP code data**
+- ADD LINK TO HIS MANUSCRIPT
 
 The emergency department and syndromic surveillance data includes protected health information (e.g., patient identification number, patient ZIP code, patient county, etc.) covered by the Health Information Portability and Accountability Act. Therefore, these data are not available due to data use agreements with the New Mexico Department of Health. Parties interested in reproducing or extending this work will need to set up their own data use agreements with the New Mexico Department of Health to receive this data. 
 
