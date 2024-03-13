@@ -21,12 +21,12 @@ The code created to conduct these analyses is included in this repository. The p
 The emergency department and syndromic surveillance data includes protected health information (e.g., patient identification number, patient ZIP code, patient county, etc.) covered by the Health Information Portability and Accountability Act. Therefore, these data are not available due to data use agreements with the New Mexico Department of Health. Parties interested in reproducing or extending this work will need to set up their own data use agreements with the New Mexico Department of Health to receive this data. 
 
 ## File Desciption 
-1. **/code/clean_data**
+1. **/code/clean_data/**
 -  **"CleanHealthStep1.ipynb"** - removes duplicate entries and multiple visits as well as reformats the syndromic surveillance (ESSENCE) diagnosis columns
 -  **"CleanHealthStep2.ipynb"** - removes erroneous ZIP codes and reformats ED dianosis columns
 -  **"reformatSmokeData.ipynb"**- merges and melts the smoke datafiles to create 4 final population-weighted ZIP code datasets for each smoke product
 -  **FindESSENCEofflinetimes.ipynb** - creates a dataset of dates when each ESSENCE facility was online
-2. **/code/case_crossover**
+2. **/code/case_crossover/**
 - **"00_preparesmokeforCCloop.R"** - applies a lag to each smoke product
 We repeated the same case-crossover process for several analyses. First, we conducted the time-stratified case-crossover analysis using several different smoke products with the ED data (code labeled with "1" and ending with "4SmokeProducts"):
 - **a1_preparehealthforCC_4SmokeProducts_ED.R** - combines the ED data and all four smoke products to create a case-crossover dataset
