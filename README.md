@@ -27,5 +27,6 @@ The emergency department and syndromic surveillance data includes protected heal
 1. clean_data
 -  **"CleanHealthStep1.ipynb"** - removes duplicate entries and multiple visits as well as reformats the syndromic surveillance (ESSENCE) diagnosis columns
 -  **"CleanHealthStep2.ipynb"** - removes erroneous ZIP codes and reformats ED dianosis columns
+-  -  **"reformatSmokeData.ipynb"**- merges and melts the smoke datafiles to create 4 final population-weighted ZIP code datasets for each smoke product
 2. case_crossover
    
