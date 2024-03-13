@@ -1,7 +1,8 @@
 # --------------------------------------------------------------------------------------------
-# Adapted from Grace Kuiper's code titled "00d_HFDR_data_cleaning.R"
-# Olivia Sablan
-# 2/2024
+# Title: b2_overall_casecasecross_analysis_AllYears.R
+# Author: Olivia Sablan
+# Created: March 2024
+# Adapted from Grace Kuiper's code titled "02_stratified_casecross_analysis.R"
 # --------------------------------------------------------------------------------------------
 library(tidyverse) # data wrangle/plot
 library(survival) # conditional logistic models
