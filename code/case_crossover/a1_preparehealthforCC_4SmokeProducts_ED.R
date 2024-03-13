@@ -1,7 +1,8 @@
 # --------------------------------------------------------------------------------------------
+# Title: a1_preparehealthforCC_4SmokeProducts_ED
+# Author: Olivia Sablan
+# Created: March 2024
 # Adapted from Grace Kuiper's code titled "00d_HFDR_data_cleaning.R"
-# Olivia Sablan
-# 2/2024
 # --------------------------------------------------------------------------------------------
 rm(list=ls())
 
