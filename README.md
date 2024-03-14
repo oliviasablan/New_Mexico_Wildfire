@@ -1,4 +1,4 @@
-# Association between smoke exposure and emergency department visits and syndromic surveillance wildfire season in New Mexico
+# Association between smoke exposure and emergency department visits and syndromic surveillance during wildfire season in New Mexico
 ## Created and maintain by: Olivia Sablan <br> Date: March 29, 2024 <br>
 ##### Email: osablan@colostate.edu
 
