@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------------
-# Title: 00_preparesmokeforCCloop.R
+# Title: preparesmokeforCCloop.R
 # Author: Olivia Sablan
 # Created: March 2024
 # Adapted from Grace Kuiper's code titled "00c_finalize_exposure_data.R"
@@ -18,12 +18,14 @@ library(dplyr)
 # "KAMAL" refers to the product created by Kamal Jyoti Maji with CMAQ modeling
 
 # First define the names of the input smoke products 
-infiles = c('AllZipSmoke_Total_os.csv', 'bigPurpleAirZip_os.csv', 'bigPurpleAirZip_os_KOvgp.csv', 'bigKamalZip_os.csv')
+infiles = c('AllZipSmoke_Total_os.csv', 'bigPurpleAirZip_os.csv', 'bigPurpleAirZip_os_KOvgp.csv',
+            'Kamal_average_reformat_all_OS.csv', 'Kamal_max_reformat_all_OS.csv')
 
 # Next define names for the final smoke product output, aka the lagged dataframes
-outfiles = c('smoke_expKATE.rds', 'smoke_expBONNE.rds', 'smoke_expBONNE_KOvgp.rds', 'smoke_expKAMAL.rds')
+outfiles = c('smoke_expKATE.rds', 'smoke_expBONNE.rds', 'smoke_expBONNE_KOvgp.rds', 'smoke_expKAMAL.rds',
+             'smoke_expKAMALmax.rds')
 
-for (i in (1:4)){
+for (i in (1:5)){
   # Loop through reading in each smoke product
   oneinfile = paste0('C:/Users/olivia.sablan/Desktop/Data/', infiles[i])
   smoke <- read_csv(oneinfile)

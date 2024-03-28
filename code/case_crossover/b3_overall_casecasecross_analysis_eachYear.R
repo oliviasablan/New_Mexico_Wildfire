@@ -1,49 +1,28 @@
 # --------------------------------------------------------------------------------------------
-# Adapted from Grace Kuiper's code titled "00d_HFDR_data_cleaning.R"
-# Olivia Sablan
-# 2/2024
-# --------------------------------------------------------------------------------------------
-rm(list=ls())
-library(tidyverse)
-# --------------------------------------------------------------------------------------------
-# Title: b1_overall_casecasecross_analysis_4SmokeProducts_ED.R
+# Title: b3_overall_casecasecross_analysis_EachYear.R
 # Author: Olivia Sablan
 # Created: March 2024
 # Adapted from Grace Kuiper's code titled "01_overall_casecross_analysis.R"
-# --------------------------------------------------------------------------------------------
-
-library(survival)
-library(splines)
-library(lubridate) 
+# -------------------------------------------------------------------------------------------
+library(tidyverse) # data wrangle/plot
+library(survival) # conditional logistic models
+library(splines) # splines
+library(lubridate) # works with dates
 library(broom)
 library(stringr)
 library(dlnm)
-
-# Need to loop through this for all 4 smoke products
-# Define input file names 
-infiles = c('casecross_list2022_KATE_ED_ALLDIAG.rds', 'casecross_list2022_BONNE_ED.rds', 
-            'casecross_list2022_BONNE_KOvgp_ED.rds', 'casecross_list2022_KAMAL_ED.rds', 'casecross_list2022_KAMALMAX_ED.rds')
-
-# Define output file names for the casecrossover datasets
-
-cumm_outfiles = c('cumulative_results2022_KATE_ED_ALLDIAG.csv', 'cumulative_results2022_BONNE_ED.csv',
-                  'cumulative_results2022_BONNE_KOvgp_ED.csv', 'cumulative_results2022_KAMAL_ED.csv',
-                  'cumulative_results2022_KAMALMAX_ED.csv')
-lagged_outfileCSV  = c('lagged_results2022_KATE_ED_ALLDIAG.csv', 'lagged_results2022_BONNE_ED.csv', 
-                       'lagged_results2022_BONNE_KOvgp_ED.csv', 'lagged_results2022_KAMAL_ED.csv',
-                       'lagged_results2022_KAMALMAX_ED.csv')
-
+rm(list=ls())
 
 # Since we are looking for a 10 ug/m3 increase in PM2.5, need to define this function
 scale10 <- function(x) (x/10)
 
 ## Distributed Lag Associations
-# 
-# First step is to define a function (called distribut_that_lag)that will take a model with a distributed lag basis function 
+# From Grace Kuiper's code:
+#"First step is to define a function (called distribut_that_lag)that will take a model with a distributed lag basis function 
 #in it and extract the lagged and cumulative results from it. The lag_mod term is where you reference the model, and strata 
 #is the strata you'd like to estimate it for. This is used to get out terms for PM~2.5~ smoke and non-smoke. 
 #Right now this function only handles lagged matrices of 0-6 days, and degrees of freedom, and will need to be modified if 
-#you want to vary this.
+#you want to vary this."
 
 distribute_that_lag <- function(lag_mod, strata, exposure_basis) {
   # output pm basis estimates
@@ -102,13 +81,20 @@ distribute_that_lag <- function(lag_mod, strata, exposure_basis) {
   # return lagged estimate
   return(lag_est)
 } # end lag estimate function
-# Read in case-crossover dataset from 'a1_preparehealthforCC_4SmokeProducts_ED.R"
-for (q in (1:5)){
-  print(infiles[q])
-  oneinfile = paste0('C:/Users/olivia.sablan/Desktop/Code from Grace/Data/casecross_list/', infiles[q])
-casecross_list <- readRDS(oneinfile) 
 
+fileends = c('_KATE_ED', '_KATE_ESSENCE')
+
+for (w in (1:2)){
+# Read in case-crossover dataset from 'a3_preparehealthforCC_EachYear.R"
 # Then use the scale10 function on just the columns with smokepm25 in the name
+for (q in c('2016', '2017', '2018', '2019', '2020', '2021', '2022'))
+{    if ((w == 2) & (q %in% c('2016', '2017', '2018')) ){
+  message<- paste0('wrong years', fileends[w], q)
+  print(message)
+}
+  else{
+  infile = paste0('C:/Users/olivia.sablan/Desktop/Code from Grace/Data/casecross_list/casecross_list', q, fileends[w], '.rds')
+casecross_list <- readRDS(infile) 
 casecross_list <- casecross_list %>%
   map(~mutate_at(.,vars(contains("smokepm25")),scale10))
 
@@ -123,7 +109,6 @@ for (i in 1:length(casecross_list)) {
     filter(!is.na(smokepm25_lag5))
   # output outcome name
   out_name <- as.character(unique(data$out_name))
-  # print(out_name) # track which outcome dataframe it's on
   # create lagged matrix
   pm_mat <- as.matrix(select(data, smokepm25, contains("smokepm25_lag")))
   HI_mat <- as.matrix(select(data, contains("maxpopHI")))
@@ -146,10 +131,8 @@ mort_dl_pm_results <- lag_est
 
 lagged_results <- mort_dl_pm_results %>% filter(type == "lag")
 cumulative_results <- mort_dl_pm_results %>% filter(type == "cumulative")
-
-oneoutfile1 = paste0('C:/Users/olivia.sablan/Desktop/Code from Grace/Data/cumulative_results/', cumm_outfiles[q])
-write_csv(cumulative_results, oneoutfile1)
-
-oneoutfile2 = paste0('C:/Users/olivia.sablan/Desktop/Code from Grace/Data/lagged_results/', lagged_outfileCSV[q])
-write_csv(lagged_results, oneoutfile2)
-}
+outfile1 <- paste0('C:/Users/olivia.sablan/Desktop/Code from Grace/Data/cumulative_results/cumulative_results', q, fileends[w], '.csv')
+outfile2 <- paste0('C:/Users/olivia.sablan/Desktop/Code from Grace/Data/lagged_results/lagged_results', q, fileends[w], '.csv')
+write_csv(cumulative_results, outfile1)
+write_csv(lagged_results, outfile2)
+}}}
