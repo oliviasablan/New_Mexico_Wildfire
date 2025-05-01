@@ -1,22 +1,25 @@
 # Association between smoke exposure and emergency department visits and syndromic surveillance during wildfire season in New Mexico
-## Created and maintain by: Olivia Sablan <br> Date: March 29, 2024 <br>
+## Created and maintain by: Olivia Sablan <br> Last Updated: May 1, 2025 <br>
 ##### Email: osablan@colostate.edu
 
 ## Overview
-This Github repository contains R code and files for our study which investigates associations between exposure to fine particulate matter (PM<sub>2.5</sub>) from wildfire smoke and emergency department visits along with syndromic surveillance (ESSENCE) reports in the state of New Mexico from 2016-2022. This repository corresponds to the study detailed in the manuscript "ADD TITLE," which can be accessed here: ADD LINK
+This Github repository contains R code, Python code, and files for our study which investigates associations between exposure to fine particulate matter (PM<sub>2.5</sub>) from wildfire smoke and emergency department visits along with syndromic surveillance (ESSENCE) reports in the state of New Mexico from 2016-2022. This repository corresponds to the study detailed in the manuscript "Health impacts of wildfire smoke exposure in New Mexico during 2022 and sensitivity to exposure estimate and referent period," which is under review. This paper compares four smoke exposure estimates (discussed further below) during the 2022 wildfire smoke season. A second manuscript will be published in the future to compare the emergency department visits to ESSENCE reports for 2016-2022.
 
 ## General Method Outline
 The goal of this project was to assess if the associations between PM<sub>2.5</sub> from wildfire smoke and respiratory and cardiovascular emergency department visits. We compared several smoke products as well as two different health data sources (emergency department records and the syndromic surveillance system). We used data from 2016-2022 for emergency department visits and 2019-2022 for syndromic surveillance. 
 
-We used an existing smoke product (detailed in O'Dell et al. 2019:  https://doi.org/10.1021/acs.est.8b05430), and also incorporated low-cost PM<sub>2.5</sub> sensors (PurpleAir) into this existing product. Both products distinguish smoke using satellite observations from the National Oceanic and Atmospheric Administration's Hazard Mapping System (https://www.ospo.noaa.gov/Products/land/hms.html). We also compared to the Maji et al (2024) smoke product, which modeled smoked PM<sub>2.5</sub> using CMAQ. We population-weight the smoke exposure estimates to the ZIP code level to match the resolution of the health data. We then conducted a time-stratified case-crossover analysis for each cardiopulmonary outcome of interest.
+We used an existing smoke product (detailed in O'Dell et al. 2019:  https://doi.org/10.1021/acs.est.8b05430), and also incorporated low-cost PM<sub>2.5</sub> sensors (PurpleAir) into this existing product. Both products distinguish smoke using satellite observations from the National Oceanic and Atmospheric Administration's Hazard Mapping System (https://www.ospo.noaa.gov/Products/land/hms.html). We also compared to the Maji et al (2024) smoke product (https://doi.org/10.1016/j.scitotenv.2024.174197), which modeled smoked PM<sub>2.5</sub> using the Community Multiscale Air Quality Modeling System (CMAQ). We population-weighted the smoke exposure estimates to the ZIP code level to match the resolution of the health data. We then conducted a time-stratified case-crossover analysis for each cardiopulmonary outcome of interest.
 
-The code created to conduct these analyses is included in this repository. The population-weighted smoke exposure datasets can be found at the CSU data repository detailed below:
-**O'Dell et al (2019) population-weight ZIP code data**
-- ADD DRYAD
-**PurpleAir population-weight ZIP code data**
-- ADD DYRAD
-**Maji et al (2024) population-weight ZIP code data**
-- ADD LINK TO HIS MANUSCRIPT
+The population-weighted datasets listed here can be accessed through Dryad (DOI: 10.5061/dryad.gb5mkkx2f):
+- **O'Dell et al (2019) population-weighted ZIP code daily average smoke PM<sub>2.5</sub>**
+  - Referred to in the manuscript as "Regulatory-only"
+- **Regulatory monitor and PurpleAir population-weighted ZIP code daily average smoke PM<sub>2.5</sub>**
+  - Referred to in the manuscript as "Regulatory + PA"
+- **Maji et al (2024) population-weighted ZIP code 24-hour average smoke PM<sub>2.5</sub>**
+  - Referred to in the manuscript as "CMAQ 24-hour average"
+- **Maji et al (2024) population-weighted ZIP code 1-hour maximum smoke PM<sub>2.5</sub>**
+  - Referred to in the manuscript as "CMAQ 1-hour maximum"
+- **Population-weighted heat index by ZIP code**
 
 The emergency department and syndromic surveillance data includes protected health information (e.g., patient identification number, patient ZIP code, patient county, etc.) covered by the Health Information Portability and Accountability Act. Therefore, these data are not available due to data use agreements with the New Mexico Department of Health. Parties interested in reproducing or extending this work will need to set up their own data use agreements with the New Mexico Department of Health to receive this data. 
 
